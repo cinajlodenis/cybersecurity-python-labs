@@ -1,0 +1,16 @@
+# Virtual Environment
+.venv/
+venv/
+ENV/
+
+# Python Cache
+__pycache__/
+*.py[cod]
+
+# OS & Editor files
+.DS_Store
+.vscode/
+.idea/
+
+# Dynamic data files
+labs/lab01/data/
