@@ -1,0 +1,409 @@
+[
+    {
+        "event": "login",
+        "user": "admin",
+        "result": "failure",
+        "timestamp": "2026-09-29 14:37:04",
+        "args": [
+            "admin",
+            "Admin12345!"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "admin",
+        "result": "failure",
+        "timestamp": "2026-09-29 14:37:04",
+        "args": [
+            "admin",
+            "WrongPassword123!"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "",
+        "result": "failure",
+        "timestamp": "2026-09-29 14:37:04",
+        "args": [
+            "",
+            "SomePassword123"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "kate_cyber",
+        "result": "failure",
+        "timestamp": "2026-09-29 14:37:04",
+        "args": [
+            "kate_cyber",
+            "123"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "admin",
+        "result": "failure",
+        "timestamp": "2026-09-29 15:04:13",
+        "args": [
+            "admin",
+            "Admin12345!"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "admin",
+        "result": "failure",
+        "timestamp": "2026-09-29 15:04:13",
+        "args": [
+            "admin",
+            "WrongPassword123!"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "",
+        "result": "failure",
+        "timestamp": "2026-09-29 15:04:13",
+        "args": [
+            "",
+            "SomePassword123"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "kate_cyber",
+        "result": "failure",
+        "timestamp": "2026-09-29 15:04:13",
+        "args": [
+            "kate_cyber",
+            "123"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "admin",
+        "result": "failure",
+        "timestamp": "2026-09-29 15:04:25",
+        "args": [
+            "admin",
+            "Admin12345!"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "admin",
+        "result": "failure",
+        "timestamp": "2026-09-29 15:04:25",
+        "args": [
+            "admin",
+            "WrongPassword123!"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "",
+        "result": "failure",
+        "timestamp": "2026-09-29 15:04:25",
+        "args": [
+            "",
+            "SomePassword123"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "kate_cyber",
+        "result": "failure",
+        "timestamp": "2026-09-29 15:04:25",
+        "args": [
+            "kate_cyber",
+            "123"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "admin",
+        "result": "failure",
+        "timestamp": "2026-09-29 15:05:51",
+        "args": [
+            "admin",
+            "Admin12345!"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "admin",
+        "result": "failure",
+        "timestamp": "2026-09-29 15:05:51",
+        "args": [
+            "admin",
+            "WrongPassword123!"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "",
+        "result": "failure",
+        "timestamp": "2026-09-29 15:05:51",
+        "args": [
+            "",
+            "SomePassword123"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "kate_cyber",
+        "result": "failure",
+        "timestamp": "2026-09-29 15:05:51",
+        "args": [
+            "kate_cyber",
+            "123"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "admin",
+        "result": "failure",
+        "timestamp": "2026-09-29 15:07:32",
+        "args": [
+            "admin",
+            "Admin12345!"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "admin",
+        "result": "failure",
+        "timestamp": "2026-09-29 15:07:32",
+        "args": [
+            "admin",
+            "WrongPassword123!"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "",
+        "result": "failure",
+        "timestamp": "2026-09-29 15:07:32",
+        "args": [
+            "",
+            "SomePassword123"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "kate_cyber",
+        "result": "failure",
+        "timestamp": "2026-09-29 15:07:32",
+        "args": [
+            "kate_cyber",
+            "123"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "admin",
+        "result": "failure",
+        "timestamp": "2026-09-29 15:07:42",
+        "args": [
+            "admin",
+            "Admin12345!"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "admin",
+        "result": "failure",
+        "timestamp": "2026-09-29 15:07:42",
+        "args": [
+            "admin",
+            "WrongPassword123!"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "",
+        "result": "failure",
+        "timestamp": "2026-09-29 15:07:42",
+        "args": [
+            "",
+            "SomePassword123"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "kate_cyber",
+        "result": "failure",
+        "timestamp": "2026-09-29 15:07:42",
+        "args": [
+            "kate_cyber",
+            "123"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "admin",
+        "result": "failure",
+        "timestamp": "2026-09-29 15:08:43",
+        "args": [
+            "admin",
+            "Admin12345!"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "admin",
+        "result": "failure",
+        "timestamp": "2026-09-29 15:08:43",
+        "args": [
+            "admin",
+            "WrongPassword123!"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "",
+        "result": "failure",
+        "timestamp": "2026-09-29 15:08:43",
+        "args": [
+            "",
+            "SomePassword123"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "kate_cyber",
+        "result": "failure",
+        "timestamp": "2026-09-29 15:08:43",
+        "args": [
+            "kate_cyber",
+            "123"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "admin",
+        "result": "failure",
+        "timestamp": "2026-09-29 15:10:00",
+        "args": [
+            "admin",
+            "Admin12345!"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "admin",
+        "result": "failure",
+        "timestamp": "2026-09-29 15:10:00",
+        "args": [
+            "admin",
+            "WrongPassword123!"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "",
+        "result": "failure",
+        "timestamp": "2026-09-29 15:10:00",
+        "args": [
+            "",
+            "SomePassword123"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "kate_cyber",
+        "result": "failure",
+        "timestamp": "2026-09-29 15:10:00",
+        "args": [
+            "kate_cyber",
+            "123"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "admin",
+        "result": "failure",
+        "timestamp": "2026-09-29 15:10:10",
+        "args": [
+            "admin",
+            "Admin12345!"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "admin",
+        "result": "failure",
+        "timestamp": "2026-09-29 15:10:10",
+        "args": [
+            "admin",
+            "WrongPassword123!"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "",
+        "result": "failure",
+        "timestamp": "2026-09-29 15:10:10",
+        "args": [
+            "",
+            "SomePassword123"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "kate_cyber",
+        "result": "failure",
+        "timestamp": "2026-09-29 15:10:10",
+        "args": [
+            "kate_cyber",
+            "123"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "admin",
+        "result": "failure",
+        "timestamp": "2026-09-30 08:31:26",
+        "args": [
+            "admin",
+            "Admin12345!"
+        ],
+        "kwargs": {}
+    }
+]

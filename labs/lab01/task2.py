@@ -49,15 +49,7 @@ security_levels = ("Public Access", "Authorized", "Privileged", "Critical")
 blocked_users = {"backup_service", "deactivated_svc", "policy_violation"}
 
 
-print("Resource")
-
-for resource_name, security_level in resources:
-    level_name = security_levels[security_level - 1]
-    print(f"Resource: {resource_name} | Security level: {level_name}")
-
-
 def check_access(username, resource_name, resource_level):
-
     if username not in users:
         return "DENY (User not found)"
 
@@ -75,10 +67,19 @@ def check_access(username, resource_name, resource_level):
     return "DENY (Insufficient clearance)"
 
 
-print("\n ACCESS CHECK ")
+def main():
+    print("Resource")
+    for resource_name, security_level in resources:
+        level_name = security_levels[security_level - 1]
+        print(f"Resource: {resource_name} | Security level: {level_name}")
 
-for username in users:
-    for resource_name, resource_level in resources:
-        result = check_access(username, resource_name, resource_level)
+    print("\n ACCESS CHECK ")
 
-        print(f"user={username} resource={resource_name} -> {result}")
+    for username in users:
+        for resource_name, resource_level in resources:
+            result = check_access(username, resource_name, resource_level)
+            print(f"user={username} resource={resource_name} -> {result}")
+
+
+if __name__ == "__main__":
+    main()

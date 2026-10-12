@@ -33,6 +33,20 @@ def generate_hash(password: str, salt: str = "00000") -> str:
     return HASH_ALGORITHM((password + salt).encode()).hexdigest()
 
 
+users_to_register = (
+    ("admin", "Admin12345!"),
+    ("user1", "SecurePass123"),
+    ("alex_dev", "AlexPassword2026"),
+    ("john_doe", "JohnDoePass999"),
+    ("kate_cyber", "CyberKate2026!"),
+    ("michael_s", "MikePass789000"),
+    ("olga_sec", "OlgaSecurity#1"),
+    ("robert_p", "RobertPass321!"),
+    ("bad_user1", "123"),
+    ("bad_user2", ""),
+)
+
+
 def create_user(username, password):
     return username, generate_hash(password, SALT)
 
@@ -49,8 +63,12 @@ def create_users(users_list):
                 except (ValueError, ValidationError) as e:
                     print(f"Помилка створення {username}: {e}")
 
-    except (OSError, FileNotFoundError, PermissionError) as e:
-        print(f"File error: {e}")
+    except FileNotFoundError as e:
+        print(f"Файл не знайдено: {e}")
+    except PermissionError as e:
+        print(f"Немає прав доступу до файлу: {e}")
+    except OSError as e:
+        print(f"Помилка вводу-виводу: {e}")
 
 
 def read_users():
@@ -63,8 +81,12 @@ def read_users():
                 if row:
                     users_db.append(tuple(row))
 
-    except (OSError, FileNotFoundError, PermissionError) as e:
-        print(f"File error: {e}")
+    except FileNotFoundError as e:
+        print(f"Файл не знайдено: {e}")
+    except PermissionError as e:
+        print(f"Немає прав доступу до файлу: {e}")
+    except OSError as e:
+        print(f"Помилка зчитування CSV: {e}")
 
     return users_db
 
@@ -72,13 +94,11 @@ def read_users():
 def log_event(func):
     @wraps(func)
     def wrapper(*args, **kwargs):
-
         username = args[0] if args else kwargs.get("username", "unknown")
 
         try:
             result = func(*args, **kwargs)
         except Exception as e:
-            # Якщо виникла помилка (наприклад, ValueError), також логуємо невдачу і прокидаємо далі
             result = False
             raise e
         finally:
@@ -104,14 +124,12 @@ def log_event(func):
                 with open(LOG_FILE, "w", encoding="utf-8") as file:
                     json.dump(logs, file, ensure_ascii=False, indent=4)
 
-            except (
-                OSError,
-                FileNotFoundError,
-                PermissionError,
-                ValueError,
-                json.JSONDecodeError,
-            ) as e:
-                print(f"Log error: {e}")
+            except FileNotFoundError as e:
+                print(f"Файл логів не знайдено: {e}")
+            except PermissionError as e:
+                print(f"Немає прав на запис логу: {e}")
+            except (OSError, ValueError, json.JSONDecodeError) as e:
+                print(f"Помилка логування JSON: {e}")
 
         return result
 
@@ -120,12 +138,10 @@ def log_event(func):
 
 @log_event
 def login(username: str, password: str) -> bool:
-
     if not username or not password:
         raise ValueError("Login or password is empty")
 
     users_db = read_users()
-
     input_hash = generate_hash(password, SALT)
 
     for stored_user, stored_hash in users_db:
@@ -136,64 +152,32 @@ def login(username: str, password: str) -> bool:
 
 
 def main():
+    print("--- 1. Створення тестових користувачів ---")
+    create_users(users_to_register)
 
-    test_users = [
-        ("admin", "Admin12345!"),
-        ("user1", "SecurePass123"),
-        ("bad_user", "123"),
-    ]
+    print("\n--- 2. База даних користувачів (users.csv) ---")
+    users_db = read_users()
+    print(f"{'Логін':<15} | {'Хеш пароля':<35}")
+    print("-" * 55)
+    for user, h_val in users_db:
+        print(f"{user:<15} | {h_val[:30]}...")
+
+    print("\n--- 3. Тестування автентифікації ---")
 
     try:
-        print("--- Створення тестових користувачів ---")
-        create_users(test_users)
+        is_logged = login("admin", "Admin12345!")
+        print(f"Вхід admin: {'Успішно' if is_logged else 'Невдало'}")
 
-        print("\n--- Тестування автентифікації ---")
+        is_logged = login("admin", "WrongPassword123!")
+        print(f"Вхід admin (невірний пароль): {'Успішно' if is_logged else 'Невдало'}")
 
-        try:
-            is_logged = login("admin", "Admin12345!")
-            print(f"Вхід admin: {'Успішно' if is_logged else 'Невдало'}")
-        except (
-            OSError,
-            ValueError,
-            ValidationError,
-            FileNotFoundError,
-            PermissionError,
-        ) as e:
-            print(f"Помилка при вході: {e}")
+        login("", "SomePassword123")
+        login("kate_cyber", "123")
 
-        try:
-            is_logged = login("admin", "WrongPassword123!")
-            print(
-                f"Вхід admin (невірний пароль): {'Успішно' if is_logged else 'Невдало'}"
-            )
-        except (
-            OSError,
-            ValueError,
-            ValidationError,
-            FileNotFoundError,
-            PermissionError,
-        ) as e:
-            print(f"Помилка при вході: {e}")
-
-        try:
-            login("", "SomePassword123")
-        except (
-            OSError,
-            ValueError,
-            ValidationError,
-            FileNotFoundError,
-            PermissionError,
-        ) as e:
-            print(f"Перехоплено очікувану помилку (порожнє поле): {e}")
-
-    except (
-        OSError,
-        FileNotFoundError,
-        PermissionError,
-        ValidationError,
-        ValueError,
-    ) as e:
-        print(f"Критична помилка виконання: {e}")
+    except ValueError as e:
+        print(f"Помилка значення: {e}")
+    except ValidationError as e:
+        print(f"Помилка валідації: {e}")
 
 
 if __name__ == "__main__":

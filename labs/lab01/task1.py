@@ -19,33 +19,26 @@ passwords = [
     "Vulnerab1l!ty",
     "common",
 ]
+
 criteria = {
     "min_length": 9,
     "require_digits": True,
     "require_upper": True,
     "require_special": True,
 }
-forbidden_passwords = {"easy", "anonymous", "sample", "qwerty", "common", "password"}
 
-
-print(
-    f"Лабораторна робота №1 | "
-    f"Виконав: {STUDENT_NAME} ({GROUP_NAME}), "
-    f"Варіант: {VARIANT_NUMBER}\n"
-)
-min_length = criteria["min_length"]
-
-print(f"Початкова кількість паролів у списку: {len(passwords)}")
-
-for _ in range(3):
-    random_index = random.randint(0, len(passwords) - 1)
-    duplicate_password = passwords[random_index]
-    passwords.append(duplicate_password)
-
-print(f"Кількість паролів після додавання дублікатів: {len(passwords)}")
+forbidden_passwords = {
+    "easy",
+    "anonymous",
+    "sample",
+    "qwerty",
+    "common",
+    "password",
+}
 
 
 def analyze_password(pwd, passwords):
+    min_length = criteria["min_length"]
 
     if pwd in forbidden_passwords or len(pwd) < min_length:
         return "Заборонений"
@@ -66,20 +59,40 @@ def analyze_password(pwd, passwords):
         return "Слабкий"
 
     if fulfilled_criteria == 4:
-        if len(pwd) >= (min_length + 4) and is_unique:
+        if len(pwd) >= min_length + 4 and is_unique:
             return "Дуже сильний"
-        else:
-            return "Сильний"
+        return "Сильний"
 
     return "Середній"
 
 
-print(f"{'№':<4} | {'Пароль':<20} | {'Довжина':<7} | Оцінка надійності")
+def main():
+    print(
+        f"Лабораторна робота №1 | "
+        f"Виконав: {STUDENT_NAME} ({GROUP_NAME}), "
+        f"Варіант: {VARIANT_NUMBER}\n"
+    )
 
-print("-" * 60)
+    min_length = criteria["min_length"]
+
+    print(f"Початкова кількість паролів у списку: {len(passwords)}")
+
+    for _ in range(3):
+        random_index = random.randint(0, len(passwords) - 1)
+        duplicate_password = passwords[random_index]
+        passwords.append(duplicate_password)
+
+    print(f"Кількість паролів після додавання дублікатів: {len(passwords)}")
+
+    print(f"{'№':<4} | {'Пароль':<20} | {'Довжина':<7} | Оцінка надійності")
+
+    print("-" * 60)
+
+    for index, password in enumerate(passwords, start=1):
+        status = analyze_password(password, passwords)
+
+        print(f"[{index:<2}] | {password:<20} | {len(password):<7} | {status}")
 
 
-for index, password in enumerate(passwords, start=1):
-    status = analyze_password(password, passwords)
-
-    print(f"[{index:<2}] | {password:<20} | {len(password):<7} | {status}")
+if __name__ == "__main__":
+    main()
